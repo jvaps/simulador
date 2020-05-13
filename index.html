@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulador</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+</head>
+
+<body>
+    <!-- INICIO DO TEXTO DA LP -->
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">
+                [Simulador] Quanto você gasta para emitir boletos manualmente?
+            </h5>
+            <p class="card-text">
+                Descubra como a automatização de cobrança recorrente pode agregar no
+                seu escritório de contabilidade A recorrência na forma de pagamento é
+                muito comum no meio contábil, sempre acompanhado de um esforço manual
+                que vem geralmente por parte de um funcionário.
+            </p>
+
+            <p class="card-text">
+                Supondo que um colaborador emita 100 boletos todo mês ao custo de R$
+                5,00 o boleto e seu salário seja de R$ 4,79 a hora, e ele invista 20
+                horas mensais na cobrança, checagem e cobrança de inadimplentes. Este
+                funcionário irá gastar um total de R$ 595,80 todos os meses somente
+                nessa tarefa.
+            </p>
+        </div>
+    </div>
+    <br>
+    <br>
+    <!-- FIM DO TEXTO DA LP -->
+
+    <!-- INICIO DO SIMULADOR -->
+
+    <div class="card"></div>
+    <!-- calculo é {[(custoBoleto * quantidadeBoleto)] + [(salárioColaborador / 220) * horasInvestidas] }  -->
+    <form id="form" oninput="calc.value=parseFloat(
+        (parseFloat(a.value)*parseInt(b.value))
+    +
+    (parseFloat(c.value/220)*parseFloat(d.value))
+    ).toFixed(2);
+    " onsubmit="return false">
+        <div class="form-row">
+            <!--onsubmit falso somente para nao resetar as informações -->
+            <div class="form-group col-md-6">
+                <label class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Custo do boleto</span>
+                    <input class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"
+                        type="number" step="0.01" id="a" value="" placeholder="Custo de cada boleto efetivado"/>
+                </label>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Quantidade de boletos</span>
+                    <input class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"
+                        type="number" id="b" step="0.01" value="" placeholder="Quantidade aproximada de boletos recorrentes gerados" />
+                </label>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Salário do Colaborador</span>
+                    <input class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"
+                        type="number" id="c" step="0.01" value="" placeholder="Salário bruto do colaborador" />
+                </label>
+                <small id="passwordHelpBlock" class="form-text text-muted">
+                    Considerando uma jornada de 220 horas mensais.
+                </small>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Horas investidas mensalmente</span>
+                    <input class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"
+                        type="number" id="d" step="0.01" value="" placeholder="Horas aproximadas investidas na cobrança" />
+                </label>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Nome</span>
+                    <input type="text" class="form-control" id="nome" placeholder="Nome" required />
+            </div>
+        
+
+            <div class="form-group col-md-6">
+                <label class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">E-mail</span>
+                    <input type="email" class="form-control" id="email" placeholder="E-mail" required />
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary" id="sub" onclick="ar()">Ver o resultado</button>
+        <!-- <button id="refazer" style="display: none;" type="submit" class="btn btn-primary" onclick="refazer()">Refazer</button> -->
+        
+
+
+        <div id="res" style="display: none;">
+            <!-- Caso queira mostrar o resultado da simulaçâo logo ao terminar de completar o cadastro -->
+
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                  <h1 class="display-4">R$ <output name="calc" for="a b c d"></output></h1>
+                  <p class="lead">Esse é o seu gasto mensal na geração de boletos, cobrança, checagem e  recobrança de inadimplentes.</p>
+                </div>
+              </div>
+        </div>
+            <!-- <p class="text-monospace">
+                O seu gasto mensal é de R$ <output name="calc" for="a b c d"></output>
+            </p> -->
+       
+    </form>
+</div>
+    <!-- FIM DO SIMULADOR -->
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="card">
+        <div class="card-body"></div>
+        <p class="card-text"></p>
+        Disponibilizaremos conteúdos via email para te ajudar a tornar a gestão financeira do seu negócio mais
+        eficiente.
+        </p>
+        <p class="card-text">
+            E para você colocar em prática o modelo automatizado de recorrência no seu escritório, preparamos uma
+            sequência de conteúdos. Veja a programação:
+        </p>
+        <br>
+        <br>
+        <div class="d-flex justify-content-around">
+
+            <li class="list-group-item">Como usar a tecnologia para alavancar seu escritório contábil</li>
+            <li class="list-group-item">Como o contador pode gerar lucro as empresas</li>
+            <li class="list-group-item">Como a automatização pode agregar ao negócio</li>
+            <li class="list-group-item">Como funciona a integração e o que é API</li>
+        </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>

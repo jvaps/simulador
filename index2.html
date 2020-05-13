@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulador</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <!-- calculo é {[(custoBoleto * quantidadeBoleto)] + [(salárioColaborador / 220) * horasInvestidas] }  -->
+    <form oninput="calc.value=(
+        (parseFloat(a.value)*parseFloat(b.value))
+    +
+    (parseFloat(c.value/220)*parseFloat(d.value))
+    ).toFixed(2);
+    " onsubmit="return false">
+        <!--onsubmit falso somente para nao resetar as informações -->
+
+        
+        <div>
+            <label>
+                Custo do boleto
+                <input type="number" id="a" value="" />
+            </label>
+        </div>
+        <div>
+            <label>
+                Quantidade de boletos
+                <input type="number" id="b" value="" />
+            </label>
+        </div>
+        <div>
+            <label>
+                Salário do colaborador
+                <input type="number" id="c" value="" />
+            </label>
+        </div>
+        <div>
+            <label>
+                Horas investidas na cobrança mensalmente
+                <input type="number" id="d" value="" />
+            </label>
+        </div>
+        <div>
+            <!-- Caso queira que o resultado seja mandado por e-mail -->
+            <!-- A ideia é que os campos nome e e-mail sejam obrigatórios para que o resultado da simulaçâo 
+                possam aparecer, independente se for mostrar na hora ou mandar no e-mail =) -->
+            <label>
+                <p>Nome: </p><input type="text" id="nome" required>
+            </label>
+            <p>E-mail: </p><input type="email" id="email" required>
+            <input type="submit" id="sub" onclick="ar()">
+            </label>
+
+        </div>
+        <div id="res" style="display: none;">
+            <!-- Caso queira mostrar o resultado da simulaçâo logo ao terminar de completar o cadastro-->
+            <label>
+                <p>O seu gasto mensal é de R$ <output name="calc" for="a b c d"></output></p>
+            </label>
+
+        </div>
+    </form>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
