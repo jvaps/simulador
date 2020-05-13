@@ -1,0 +1,30 @@
+<form>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label>Custo por Boleto</label>
+        <input type="number" class="form-control" id="a" placeholder="Custo para cada boleto gerado" step="0.01" value="" required>
+      </div>
+      <div class="form-group col-md-6">
+        <label>Quantidade de boletos</label>
+        <input type="number" class="form-control" id="b" placeholder="Quantidade de boletos gerados ao mês" step="0.01" value="" required>
+      </div>
+      <div class="form-group col-md-6">
+        <label>Salário do colaborador</label>
+        <input type="number" class="form-control" id="c" placeholder="Salário bruto mensal do colaborador" step="0.01" value="" required>
+      </div>
+      <div class="form-group col-md-6">
+        <label>Quantidade de boletos</label>
+        <input type="number" class="form-control" id="d" placeholder="Horas investidas mensalmente" step="0.01" value="" required>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" id="sub" onclick="ar()">
+        Ver o resultado
+      </button>
+  </div>
+  <div id="res" style="display: none;">
+    <!-- Caso queira mostrar o resultado da simulaçâo logo ao terminar de completar o cadastro -->
+    <p class="text-monospace">
+      O seu gasto mensal é de R$ <output name="calc" for="a b c d"></output>
+    </p>
+  </div>
+</form>
